@@ -1,6 +1,7 @@
 # Vue Notes App
 
 A simple and stylish notes application built with Vue 3 and Vite.
+`Access the deployed website here https://vrooot.netlify.app/`
 
 ## Features
 
