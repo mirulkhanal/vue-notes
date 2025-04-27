@@ -28,7 +28,7 @@ A simple and stylish notes application built with Vue 3 and Vite.
 
 Make sure you have Node.js and pnpm installed.
 
-1.  **Clone the repository (if applicable):**
+1.  **Clone the repository:**
 
     ```sh
     git clone <your-repo-url>
