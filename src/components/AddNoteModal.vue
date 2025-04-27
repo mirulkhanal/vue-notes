@@ -17,13 +17,7 @@
             <label>Color</label>
             <div class="color-options">
               <div
-                v-for="color in [
-                  '#fdffb6',
-                  '#caffbf',
-                  '#9bf6ff',
-                  '#a0c4ff',
-                  '#ffc6ff',
-                ]"
+                v-for="color in noteColors"
                 :key="color"
                 class="color-option"
                 :class="{ active: noteData.color === color }"
@@ -48,6 +42,8 @@
 </template>
 
 <script>
+import { getAllNoteColors, UI_COLORS } from '../constants/colors';
+
 export default {
   name: 'AddNoteModal',
   props: {
@@ -61,6 +57,14 @@ export default {
     },
   },
   emits: ['close-modal', 'add-note'],
+  setup() {
+    const noteColors = getAllNoteColors();
+
+    return {
+      noteColors,
+      UI_COLORS,
+    };
+  },
 };
 </script>
 
@@ -129,7 +133,7 @@ export default {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background-color: #4a90e2;
+  background-color: var(--primary-color);
   border-radius: 3px;
 }
 
@@ -161,7 +165,7 @@ export default {
 }
 
 .modal-content textarea:focus {
-  border-color: #4a90e2;
+  border-color: var(--primary-color);
   background: #fff;
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
@@ -231,13 +235,13 @@ export default {
 }
 
 .modal-add {
-  background: #4a90e2;
+  background: var(--primary-color);
   color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .modal-add:hover {
-  background: #3a7bc8;
+  background: var(--primary-dark-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

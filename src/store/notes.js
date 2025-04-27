@@ -1,5 +1,6 @@
 import { formatDate, formatTime } from '@/utils/dateUtils';
 import { reactive } from 'vue';
+import { NOTE_COLORS, DEFAULT_NOTE_COLOR } from '../constants/colors';
 
 const notes = reactive([
   {
@@ -7,35 +8,35 @@ const notes = reactive([
     date: '14th June, 2025',
     time: '9:45 AM',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ab. Rem sequi sit reprehenderit magni illum assumenda possimus accusantium debitis.',
-    color: '#fdffb6',
+    color: NOTE_COLORS.YELLOW,
   },
   {
     id: 2,
     date: '15th June, 2024',
     time: '11:00 AM',
     text: 'Another note example. Vue.js is fun!',
-    color: '#caffbf',
+    color: NOTE_COLORS.GREEN,
   },
   {
     id: 3,
     date: '16th June, 2023',
     time: '2:30 PM',
     text: 'This is the third note in our list.',
-    color: '#9bf6ff',
+    color: NOTE_COLORS.BLUE,
   },
   {
     id: 4,
     date: '17th June, 2022',
     time: '4:00 PM',
     text: 'Adding more notes for testing the layout.',
-    color: '#a0c4ff',
+    color: NOTE_COLORS.PURPLE,
   },
   {
     id: 5,
     date: '18th June, 2021',
     time: '8:15 AM',
     text: 'Final sample note to fill the space.',
-    color: '#ffc6ff',
+    color: NOTE_COLORS.PINK,
   },
 ]);
 
@@ -48,7 +49,7 @@ export const addNote = (newNote) => {
     date: formatDate(now),
     time: formatTime(now),
     text: newNote.text,
-    color: newNote.color,
+    color: newNote.color || DEFAULT_NOTE_COLOR,
   });
 };
 

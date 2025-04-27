@@ -8,13 +8,14 @@ import notes, {
   deleteNote as deleteNoteFromStore,
   updateNote as updateNoteInStore,
 } from './store/notes';
+import { DEFAULT_NOTE_COLOR, UI_COLORS } from './constants/colors';
 
 const showModal = ref(false);
 const searchQuery = ref('');
 
 const newNote = reactive({
   text: '',
-  color: '#fdffb6',
+  color: DEFAULT_NOTE_COLOR,
 });
 
 const filteredNotes = computed(() => {
@@ -34,7 +35,7 @@ const handleAddNote = () => {
   addNoteToStore(newNote);
 
   newNote.text = '';
-  newNote.color = '#fdffb6';
+  newNote.color = DEFAULT_NOTE_COLOR;
   showModal.value = false;
 };
 
@@ -45,10 +46,21 @@ const handleDeleteNote = (note) => {
 const handleSearch = (query) => {
   searchQuery.value = query;
 };
+
+const cssVars = {
+  '--primary-color': UI_COLORS.PRIMARY,
+  '--primary-dark-color': UI_COLORS.PRIMARY_DARK,
+  '--danger-color': UI_COLORS.DANGER,
+  '--danger-dark-color': UI_COLORS.DANGER_DARK,
+  '--background-color': UI_COLORS.BACKGROUND,
+  '--text-primary-color': UI_COLORS.TEXT_PRIMARY,
+  '--text-secondary-color': UI_COLORS.TEXT_SECONDARY,
+  '--text-muted-color': UI_COLORS.TEXT_MUTED,
+};
 </script>
 
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :style="cssVars">
     <Header @open-modal="showModal = true" @search="handleSearch" />
 
     <AddNoteModal
@@ -60,7 +72,3 @@ const handleSearch = (query) => {
     <NoteList :notes="filteredNotes" @delete-note="handleDeleteNote" />
   </div>
 </template>
-
-<style>
-@import './styles/global.css';
-</style>

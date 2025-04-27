@@ -2,9 +2,9 @@
   <div class="header">
     <div class="search-container">
       <v-icon name="ri-search-line" class="search-icon" />
-      <input 
-        type="text" 
-        placeholder="Search notes..." 
+      <input
+        type="text"
+        placeholder="Search notes..."
         class="search-input"
         v-model="searchText"
         @input="handleSearch"
@@ -20,6 +20,7 @@
 <script>
 import { OhVueIcon } from 'oh-vue-icons';
 import { ref } from 'vue';
+import { UI_COLORS } from '../constants/colors';
 
 export default {
   name: 'Header',
@@ -29,16 +30,17 @@ export default {
   emits: ['open-modal', 'search'],
   setup(props, { emit }) {
     const searchText = ref('');
-    
+
     const handleSearch = () => {
       emit('search', searchText.value);
     };
-    
+
     return {
       searchText,
-      handleSearch
+      handleSearch,
+      UI_COLORS,
     };
-  }
+  },
 };
 </script>
 
@@ -65,7 +67,7 @@ export default {
 }
 
 .search-container:focus-within {
-  box-shadow: 0 0 0 2px #4a90e2;
+  box-shadow: 0 0 0 2px var(--primary-color);
   background-color: white;
 }
 
@@ -88,7 +90,7 @@ export default {
 .add-button {
   display: flex;
   align-items: center;
-  background-color: #4a90e2;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 50px;
@@ -101,7 +103,7 @@ export default {
 }
 
 .add-button:hover {
-  background-color: #3a7bc8;
+  background-color: var(--primary-dark-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
