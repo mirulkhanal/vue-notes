@@ -74,7 +74,6 @@ const updateNOte = () => {};
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import { RiSearchLine, RiAddLine } from 'oh-vue-icons/icons';
 
-
 addIcons(RiSearchLine, RiAddLine);
 
 export default {
