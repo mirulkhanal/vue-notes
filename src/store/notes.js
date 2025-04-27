@@ -4,28 +4,28 @@ import { reactive } from 'vue';
 const notes = reactive([
   {
     id: 1,
-    date: '14th June, 2021',
+    date: '14th June, 2025',
     time: '9:45 AM',
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ab. Rem sequi sit reprehenderit magni illum assumenda possimus accusantium debitis.',
     color: '#fdffb6',
   },
   {
     id: 2,
-    date: '15th June, 2021',
+    date: '15th June, 2024',
     time: '11:00 AM',
     text: 'Another note example. Vue.js is fun!',
     color: '#caffbf',
   },
   {
     id: 3,
-    date: '16th June, 2021',
+    date: '16th June, 2023',
     time: '2:30 PM',
     text: 'This is the third note in our list.',
     color: '#9bf6ff',
   },
   {
     id: 4,
-    date: '17th June, 2021',
+    date: '17th June, 2022',
     time: '4:00 PM',
     text: 'Adding more notes for testing the layout.',
     color: '#a0c4ff',

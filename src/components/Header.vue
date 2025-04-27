@@ -2,7 +2,13 @@
   <div class="header">
     <div class="search-container">
       <v-icon name="ri-search-line" class="search-icon" />
-      <input type="text" placeholder="Search notes..." class="search-input" />
+      <input 
+        type="text" 
+        placeholder="Search notes..." 
+        class="search-input"
+        v-model="searchText"
+        @input="handleSearch"
+        @keyup.enter="handleSearch" />
     </div>
     <button class="add-button" @click="$emit('open-modal')">
       <v-icon name="ri-add-line" class="add-icon" />
@@ -13,13 +19,26 @@
 
 <script>
 import { OhVueIcon } from 'oh-vue-icons';
+import { ref } from 'vue';
 
 export default {
   name: 'Header',
   components: {
     'v-icon': OhVueIcon,
   },
-  emits: ['open-modal'],
+  emits: ['open-modal', 'search'],
+  setup(props, { emit }) {
+    const searchText = ref('');
+    
+    const handleSearch = () => {
+      emit('search', searchText.value);
+    };
+    
+    return {
+      searchText,
+      handleSearch
+    };
+  }
 };
 </script>
 
